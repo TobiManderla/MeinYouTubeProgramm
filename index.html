@@ -687,9 +687,9 @@ function openEdit(id) {
   document.getElementById('del-btn').classList.toggle('hidden', !s);
   document.getElementById('e-name').value     = s?.name             || '';
   document.getElementById('e-channels').value = s?.channelsRaw      || '';
-  document.getElementById('e-seg').value      = s?.segmentMin       ?? 6;
-  document.getElementById('e-sess').value     = s?.sessionMin       ?? 45;
-  document.getElementById('e-maxpc').value    = s?.maxPerChannel    ?? 200;
+  document.getElementById('e-seg').value      = s?.segmentMin       ?? 10;
+  document.getElementById('e-sess').value     = s?.sessionMin       ?? 60;
+  document.getElementById('e-maxpc').value    = s?.maxPerChannel    ?? 50;
   document.getElementById('e-cache').value    = s?.cacheHours       ?? 12;
   document.getElementById('e-prob').value     = s?.continuationProb ?? 0.35;
   document.getElementById('e-cooldown').value = s?.cooldownN        ?? 3;
@@ -745,10 +745,10 @@ function saveSender() {
     id:               existing?.id         || crypto.randomUUID(),
     name:             document.getElementById('e-name').value.trim() || 'Unbenannter Sender',
     channelsRaw:      document.getElementById('e-channels').value.trim(),
-    maxPerChannel:    +document.getElementById('e-maxpc').value    || 200,
+    maxPerChannel:    +document.getElementById('e-maxpc').value    || 50,
     cacheHours:       +document.getElementById('e-cache').value    || 12,
-    segmentMin:       +document.getElementById('e-seg').value      || 6,
-    sessionMin:       +document.getElementById('e-sess').value     || 45,
+    segmentMin:       +document.getElementById('e-seg').value      || 10,
+    sessionMin:       +document.getElementById('e-sess').value     || 60,
     continuationProb: +document.getElementById('e-prob').value     || 0.35,
     queueMax:         3,
     cooldownN:        +document.getElementById('e-cooldown').value || 3,
